@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Wayfair.tech
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FFF" />
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel='stylesheet' href='styles.sass' />
+  </head>
+
+  <body>
+    <main>
+      <div id="root">
+        <a href='contact.html'> 
+          <h1>
+            Purchase This Domain
+          </h1>
+        </a>
+      </div>
+    </main>
+
+  <footer>
+
+  </footer>
+  </body>
+  <script>
+  let h1 = document.querySelector('h1')
+
+
+    setInterval(_ => {
+      h1.style.color = (h1.style.color == 'transparent' ? 'white' : 'transparent');
+      window.navigator.vibrate(100)
+    }, 500)
+  </script>
+  <!-- <script>
+    if ('serviceWorker' in navigator) {
+      if (navigator.serviceWorker.controller) {
+        console.log('active service worker found, no need to register')
+      } else {
+
+        //Register the ServiceWorker
+        navigator.serviceWorker.register('sw.js', {
+          scope: './'
+        }).then(function (reg) {
+          console.log('Service worker has been registered for scope:' + reg.scope);
+        });
+      }
+    }
+  </script>  -->
+</html>

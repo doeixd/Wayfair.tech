@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    Contact | Wayfair.tech
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFF" />
+  <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel='stylesheet' href='styles.sass' />
+</head>
+
+<body>
+
+  <script>
+  function send() {
+      let message = document.querySelector('#message').target.value
+      let email = document.querySelector('#email').target.value
+      console.log('ran send')
+      fetch('/contact', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `email=${email}&message=${message}`
+      })
+        .then(response => response.json())
+        .then(res => console.log(res))
+    }
+  
+  </script>
+
+
+  <main>
+    <div id='form'>
+      <div id='rap'>
+        <input placeholder='email' id='email' name='email'></input>
+      </div>
+      <br />
+      <div id='rap'>
+        <textarea type='text' form='form' id='message' name='message'></textarea>
+      </div>
+      <br />
+      <div id='rap'>
+        <button type='submit' id='submit' onsubmit='send()'>Submit</button>
+      </div>
+    </div>  
+
+  </main>
+
+  <footer>
+  <script src="index.js"></script>
+  </footer>
+</body>
+<!-- <script>
+  if ('serviceWorker' in navigator) {
+    if (navigator.serviceWorker.controller) {
+      console.log('active service worker found, no need to register')
+    } else {
+
+      //Register the ServiceWorker
+      navigator.serviceWorker.register('sw.js', {
+        scope: './'
+      }).then(function (reg) {
+        console.log('Service worker has been registered for scope:' + reg.scope);
+      });
+    }
+  }
+</script> -->
+
+</html>
